@@ -23,10 +23,6 @@ public class app {
 
 
 
-
-
-        
-
         /*
         //Teste
             cadastrarCliente.cadastrar(

@@ -1,0 +1,25 @@
+[1mdiff --git a/.idea/vcs.xml b/.idea/vcs.xml[m
+[1mindex 94a25f7..624eba9 100644[m
+[1m--- a/.idea/vcs.xml[m
+[1m+++ b/.idea/vcs.xml[m
+[36m@@ -2,5 +2,6 @@[m
+ <project version="4">[m
+   <component name="VcsDirectoryMappings">[m
+     <mapping directory="$PROJECT_DIR$" vcs="Git" />[m
+[32m+[m[32m    <mapping directory="$PROJECT_DIR$/master" vcs="Git" />[m
+   </component>[m
+ </project>[m
+\ No newline at end of file[m
+[1mdiff --git a/src/Programa/app.java b/src/Programa/app.java[m
+[1mindex 5c91c9c..1b161a1 100644[m
+[1m--- a/src/Programa/app.java[m
+[1m+++ b/src/Programa/app.java[m
+[36m@@ -23,8 +23,6 @@[m [mpublic class app {[m
+ [m
+ [m
+ [m
+[31m-[m
+[31m-[m
+         [m
+ [m
+         /*[m
