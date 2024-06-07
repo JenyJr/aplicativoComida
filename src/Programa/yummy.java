@@ -1,5 +1,6 @@
 package Programa;
 
+import Estruturas.armazenarCompra;
 import Estruturas.avaliacao;
 import Estruturas.cadastroProduto;
 import Estruturas.cadastroUsuario;
@@ -8,10 +9,11 @@ public class yummy {
     public cadastroUsuario cadastrarUsuario = new cadastroUsuario();
     public avaliacao avaliar = new avaliacao();
     public cadastroProduto cadastrarProduto = new cadastroProduto();
-    public cadastroUsuario cadastroUsuario;
 
-    void novoUsuario(String tipo, String nome, String email, String cpf, int ddd, int telefone){
-        cadastrarUsuario.cadastrar(tipo, nome, email, cpf, ddd, telefone);
+    public armazenarCompra armazenarCompra = new armazenarCompra();
+
+    void novoUsuario(String tipo, String nome, String senha, String email, String cpf, String telefone){
+        cadastrarUsuario.cadastrar(tipo, nome, senha, email, cpf, telefone);
     }
 
     void novoProduto(int id, String nome){
@@ -25,6 +27,9 @@ public class yummy {
         avaliar.incluir(valor, idVendedor);
     }
 
+    void realizarCompra(String nomeProduto){
+        armazenarCompra.inserir(nomeProduto);
+    }
 
 
 
