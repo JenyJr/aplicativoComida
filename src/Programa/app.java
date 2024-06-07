@@ -123,7 +123,7 @@ public class app {
                     senhaComprador = scanner.next();
 
                     cadastrarCliente.cadastrar(tipo2, nomeVendedor, senhaVendedor, emailVendedor, cpfVendedor, telefoneVendedor);
-                    cadastrarProduto.imprimirPilha();
+                    cadastrarProduto.push();
 
 
                     break;
