@@ -3,8 +3,6 @@ import Estruturas.cadastroProduto;
 import Estruturas.cadastroUsuario;
 import Estruturas.avaliacao;
 import Estruturas.armazenarCompra;
-import Nos.produto;
-import Programa.yummy;
 import java.util.Scanner;
 
 public class app {
@@ -69,8 +67,6 @@ public class app {
     */
 
         //MENU
-
-
         int n;
         do {
             System.out.println("====== MENU DE OPÇÕES ======\n");
@@ -101,7 +97,7 @@ public class app {
                     System.out.println("Cadastrar Senha:");
                     senhaComprador = scanner.next();
 
-                    cadastrarCliente.cadastrar(tipo1, nomeComprador, senhaComprador, emailComprador, cpfComprador, telefoneComprador);
+                    //cadastrarCliente.cadastrar(tipo1, nomeComprador, senhaComprador, emailComprador, cpfComprador, telefoneComprador);
                     cadastrarProduto.imprimirPilha();
                     break;
                 case 2:
@@ -122,8 +118,7 @@ public class app {
                     System.out.println("Cadastrar Senha:");
                     senhaComprador = scanner.next();
 
-                    cadastrarCliente.cadastrar(tipo2, nomeVendedor, senhaVendedor, emailVendedor, cpfVendedor, telefoneVendedor);
-                    cadastrarProduto.push();
+                    //cadastrarCliente.cadastrar(tipo2, nomeVendedor, senhaVendedor, emailVendedor, cpfVendedor, telefoneVendedor);
 
 
                     break;
