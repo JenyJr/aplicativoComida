@@ -8,8 +8,8 @@ public class cadastroUsuario {
         this.inicio = null;
     }
 
-    public void cadastrar(String tipo, String nome,String senha, String email, String cpf, String telefone){
-        usuario novoCliente = new usuario(tipo, nome, senha, email, cpf, telefone);
+    public void cadastrar(String tipo, String nome, String email, String cpf, int ddd, int telefone){
+        usuario novoCliente = new usuario(tipo, nome, email, cpf, ddd, telefone);
         if (this.inicio == null){
             this.inicio = novoCliente;
         } else if(this.inicio.cpf.equals(cpf)){
@@ -34,14 +34,13 @@ public class cadastroUsuario {
         usuario anterior = this.inicio;
 
         long CPF = Long.parseLong(atual.cpf);
-        long TEL = Long.parseLong(atual.telefone);
 
         while(atual != null){
             System.out.println("Tipo: " + atual.tipo);
             System.out.println("Nome: " + atual.nome);
             System.out.println("Email: "  + atual.email);
             System.out.println("Cpf :" + CPF);
-            System.out.println("Telefone:"  + TEL);
+            System.out.println("Telefone :"  +"(" + atual.ddd +") " + atual.telefone);
 
             anterior = atual;
             atual = atual.proximo;
