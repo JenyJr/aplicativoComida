@@ -1,16 +1,14 @@
 package Nos;
 
-//☆☆☆☆
-//★★★★
+//☆☆☆☆☆
+//★★★★★
 public class nota {
 
     public int valor;
-    public int idVendedor;
     public nota proximo;
 
-    public nota(int valor, int idVendedor){
+    public nota(int valor){
         this.valor = valor;
-        this.idVendedor = idVendedor;
         this.proximo = null;
     }
 

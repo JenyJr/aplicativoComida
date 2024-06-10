@@ -1,76 +1,21 @@
 package Programa;
-import Estruturas.cadastroProduto;
-import Estruturas.cadastroUsuario;
-import Estruturas.avaliacao;
-import Estruturas.armazenarCompra;
+import Estruturas.*;
+import java.util.Objects;
 import java.util.Scanner;
 
+
 public class app {
+
     public static void main(String[] args) throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
         scanner.useDelimiter("\n");
-
-        cadastroUsuario cadastrarCliente = new cadastroUsuario();
-        avaliacao avaliar = new avaliacao();
-        cadastroProduto cadastrarProduto = new cadastroProduto();
-        armazenarCompra compra = new armazenarCompra();
         yummy aplicativoYummy = new yummy();
-
-        /*compra.inserir("Pão");
-        compra.inserir("Pão2");
-        compra.inserir("Pão3");
-        compra.inserir("Pão4");
-        compra.inserir("Mortadela");
-        compra.inserir("queijo");
-
-
-        System.out.println("Pos Ordem\n");
-        compra.posOrdem();
-        System.out.println("Em Ordem\n");
-        compra.emOrdem();
-        System.out.println("Pre Ordem\n");
-        compra.preOrdem();*/
-
-        //FALTA:
-        // FAZER A ARVORE DE COMPRAS!
-        // FAZER INTERFACE DO APLICATIVO!
-        // FAZER INTEGRAÇÃO E TESTES DE QUALIDADE!
-
-    /*
-    //Teste
-        cadastrarCliente.cadastrar(
-                "Cliente",
-                "Hugo Rios Brito",
-                "hugo.rios.brito@hotmail.com",
-                "02535245698",
-                71,
-                992550982);
-
-        cadastrarCliente.imprimirLista();
-
-        cadastrarProduto.push(15, "Notebook");
-        cadastrarProduto.push(333, "Bicicleta");
-        cadastrarProduto.push(412, "Televisão");
-        cadastrarProduto.push(528, "Micro-ondas");
-        cadastrarProduto.push(613, "Geladeira");
-        cadastrarProduto.push(731, "Fogão");
-        cadastrarProduto.push(842, "Celular");
-        cadastrarProduto.push(953, "Tablet");
-        cadastrarProduto.push(1064, "Impressora");
-        cadastrarProduto.push(1175, "Câmera");
-        cadastrarProduto.push(1286, "Ventilador");
-
-        avaliar.incluir(5, 342);
-
-        avaliar.imprimir();
-        cadastrarProduto.imprimirPilha();
-    */
 
         //MENU
         int n;
         do {
-            System.out.println("====== MENU DE OPÇÕES ======\n");
-            System.out.println("1 - Cadastrar Comprador.");
+            System.out.println("\n====== Yummy App  ======\n");
+            System.out.println("1 - Cadastrar Comprador");
             System.out.println("2 - Cadastrar Vendedor");
             System.out.println("3 - Sair");
             System.out.println("============================\n");
@@ -78,14 +23,14 @@ public class app {
 
             switch (n) {
                 case 1:
-                    String tipo1 = "comprador", nomeComprador = "", senhaComprador = "", emailComprador = "", cpfComprador = "", telefoneComprador = "";
+                    String tipo1 = "Comprador", nomeComprador = "", senhaComprador = "", emailComprador = "", cpfComprador = "", telefoneComprador="";
 
                     System.out.println("====== Cadastrar Comprador ======\n");
 
-                    System.out.println("Cadastrar Nome de Usuário:");
+                    System.out.println("Nome de Usuário:");
                     nomeComprador = scanner.next();
 
-                    System.out.println("Digite o eMail:");
+                    System.out.println("Digite o Email:");
                     emailComprador = scanner.next();
 
                     System.out.println("Digite o CPF:");
@@ -97,31 +42,179 @@ public class app {
                     System.out.println("Cadastrar Senha:");
                     senhaComprador = scanner.next();
 
-                    //cadastrarCliente.cadastrar(tipo1, nomeComprador, senhaComprador, emailComprador, cpfComprador, telefoneComprador);
-                    cadastrarProduto.imprimirPilha();
+                    aplicativoYummy.cadastrarUsuario.cadastrar(tipo1, nomeComprador, emailComprador, cpfComprador, String.valueOf(telefoneComprador), senhaComprador);
+
+                    int s;
+                    do{
+                        System.out.println("====== MENU DE OPÇÕES (Comprador) ======\n");
+                        System.out.println("1 - Ver produtos disponíveis");
+                        System.out.println("2 - Comprar produto");
+                        System.out.println("3 - Visualizar histórico de compras");
+                        System.out.println("4 - Sair\n");
+
+                        s = scanner.nextInt();
+
+                        switch (s){
+                            case 1:
+                                System.out.println("====== Produtos Disponíveis ======");
+                                aplicativoYummy.imprimirPilha();
+                                break;
+
+                            case 2:
+
+                                String nomeEscolhido;
+
+                                System.out.print("Escolha o nome do produto a ser comprado: ");
+                                nomeEscolhido = scanner.next();
+                                aplicativoYummy.historicoCompra(nomeEscolhido);
+                                aplicativoYummy.retirarProduto(nomeEscolhido);
+
+
+                                String caracter = "=";
+                                System.out.print("Sua compra está em processo de entrega: \n");
+                                for (int i = 0; i < 15; i++) {
+                                    System.out.print(caracter);
+                                    Thread.sleep(500);
+                                }
+                                
+                                    int e;
+                                    do{
+                                        System.out.println("\n");
+                                        System.out.println("1 - Status da compra \n");
+                                        System.out.println("2 - Sair\n");
+                                        e = scanner.nextInt();
+                                    switch (e){
+                                        case 1:
+                                            System.out.println("\n");
+                                            System.out.println("====== Seu Produto chegou ao destino final! ======");
+                                            int avaliacao;
+
+                                            System.out.println("====== Avalie o vendedor com uma nota de 0 a 10 ======");
+                                            avaliacao = scanner.nextInt();
+
+                                            aplicativoYummy.avaliarVendedor(avaliacao);
+
+                                            String estrelas = "★";
+                                            for(int i = 0; i < avaliacao; i++){
+                                                System.out.print(estrelas);
+                                            }
+
+                                            break;
+                                            
+                                        case 2:
+                                            String caracteres = "|/-\\";
+                                            int totalPassos = 15;
+                                            int delayMilissegundos = 400;
+
+                                            for (int i = 0; i < totalPassos; i++) {
+                                                System.out.print("\rSaindo " + caracteres.charAt(i % caracteres.length()));
+                                                Thread.sleep(delayMilissegundos);
+                                            }
+                                            break;
+                                    }
+                                } while(e != 2);
+                                break;
+                            case 3:
+                                System.out.println("====== HISTORICO DE COMPRAS ======");
+                                aplicativoYummy.historicoCompras.posOrdem();
+                                break;
+                            case 4:
+                                String caracteres = "|/-\\";
+                                int totalPassos = 15;
+                                int delayMilissegundos = 400;
+
+                                for (int i = 0; i < totalPassos; i++) {
+                                    System.out.print("\rSaindo " + caracteres.charAt(i % caracteres.length()));
+                                    Thread.sleep(delayMilissegundos);
+                                }
+                                break;
+                            default:
+                                System.err.println("OPÇÃO INVALIDA!");
+                                break;
+                        }
+
+                    } while(s != 4);
                     break;
                 case 2:
-                    String tipo2 = "vendedor", nomeVendedor = "", senhaVendedor = "", emailVendedor = "", cpfVendedor = "", telefoneVendedor = "";
-                    System.out.println("====== Cadastrar Vendedor ======\n");
-                    System.out.println("Cadastrar Nome de Usuário:");
-                    nomeComprador = scanner.next();
+                    String tipo2 = "Vendedor", nomeVendedor = "", senhaVendedor = "", emailVendedor = "", cpfVendedor = "", telefoneVendedor = "";
 
-                    System.out.println("Digite o eMail:");
-                    emailComprador = scanner.next();
+
+                    System.out.println("====== Cadastrar Vendedor ======\n");
+                    System.out.println("Nome do Vendedor:");
+                    nomeVendedor = scanner.next();
+
+                    System.out.println("Digite o Email:");
+                    emailVendedor = scanner.next();
 
                     System.out.println("Digite o CPF:");
-                    cpfComprador = scanner.next();
+                    cpfVendedor = scanner.next();
 
-                    System.out.println("Digite o telefone");
-                    telefoneComprador = scanner.next();
+                    System.out.println("Digite o telefone:");
+                    telefoneVendedor = scanner.next();
 
                     System.out.println("Cadastrar Senha:");
-                    senhaComprador = scanner.next();
+                    senhaVendedor = scanner.next();
 
-                    //cadastrarCliente.cadastrar(tipo2, nomeVendedor, senhaVendedor, emailVendedor, cpfVendedor, telefoneVendedor);
+                    aplicativoYummy.cadastrarUsuario.cadastrar(tipo2, nomeVendedor, emailVendedor, cpfVendedor, String.valueOf(telefoneVendedor), senhaVendedor);
+                    int n1;
+                    do {
+                        System.out.println("====== MENU DE OPÇÕES(Vendedor) ======\n");
+                        System.out.println("1 - Cadastrar Produto");
+                        System.out.println("2 - Retirar Produto");
+                        System.out.println("3 - Vizualizar Produtos");
+                        System.out.println("4 - Sair\n");
+                        n1 = scanner.nextInt();
 
+                        switch (n1) {
+                            case 1:
+                                String nomeProduto;
+                                String finalizar;
+                                do {
+                                    System.out.println("====== Cadastrar Produto ======\n");
+                                    System.out.println("Nome do Produto: ");
+                                    nomeProduto = scanner.next();
+
+                                    aplicativoYummy.novoProduto(nomeProduto);
+                                    System.out.println("------Produto Adicionado------\n-Nome do Produto: " + nomeProduto);
+
+                                    System.out.println("Deseja continuar adicionando produtos ou voltar?\nC - para Continuar\tV - para voltar \n->");
+                                    finalizar = scanner.next();
+                                } while(Objects.equals(finalizar, "C") || Objects.equals(finalizar, "c"));
+
+                                break;
+
+        /*                    case 2:
+                                String nomeProdutoR;
+
+                                System.out.println("====== Retirar Produto do catálogo ======\n");
+                                System.out.println("Nome do produto: ");
+                                nomeProdutoR = scanner.next();
+
+                                aplicativoYummy.transferirPilhaLista(nomeProdutoR);
+                                System.out.println("--- Produto Removido ---\n-Nome:" + nomeProdutoR);
+
+                                break;
+*/
+                            case 3:
+                                System.out.println("====== Lista de Produtos Cadastrados ======\n");
+                                aplicativoYummy.imprimirPilha();
+                                break;
+                            case 4:
+                                String caracteres = "|/-\\";
+                                int totalPassos = 15;
+                                int delayMilissegundos = 400;
+
+                                for (int i = 0; i < totalPassos; i++) {
+                                    System.out.print("\rSaindo " + caracteres.charAt(i % caracteres.length()));
+                                    Thread.sleep(delayMilissegundos);
+                                }
+                                break;
+                        }
+
+                    } while (n1!=4);
 
                     break;
+
                 case 3:
                     String caracteres = "|/-\\";
                     int totalPassos = 15;
@@ -133,7 +226,7 @@ public class app {
                     }
                     break;
                 default:
-                    System.out.println("Opção inválida");
+                    System.out.println("Opção inválida\n");
             }
         } while (n != 3);
     }

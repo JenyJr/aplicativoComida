@@ -1,18 +1,21 @@
 package Estruturas;
 
 import Nos.nota;
+//FILA
 
 public class avaliacao{
     public nota primeiro;
     public nota ultimo;
+
+    public cadastroUsuario cadastroUsuario = new cadastroUsuario();
 
     public avaliacao(){
         this.primeiro = null;
         this.ultimo = null;
     }
 
-    public void incluir (int valor, int idVendedor){
-        nota inserir = new nota(valor, idVendedor);
+    public void incluir (int valor){
+        nota inserir = new nota(valor);
         if(this.primeiro == null){
             this.primeiro = inserir;
             this.ultimo = inserir;
@@ -22,17 +25,12 @@ public class avaliacao{
         }
     }
 
-    public int retornarIDdoVendedor(){
-        nota atual = this.primeiro;
-        return atual.idVendedor;
-    }
-
     //debug
     public void imprimir(){
         if(this.primeiro!=null){
             nota atual = this.primeiro;
             while(atual!= null){
-                System.out.println("Avaliação: " + atual.valor + "Vendedor: " + atual.idVendedor);
+                System.out.println("Avaliação: " + atual.valor );
                 atual = atual.proximo;
             }
 

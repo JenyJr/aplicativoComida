@@ -43,6 +43,8 @@ public class armazenarCompra{
             imprimirArvoreRecPosOrdem(raiz.esquerda);
             imprimirArvoreRecPosOrdem(raiz.direita);
             System.out.println(raiz.nomeProduto);
+        }else {
+            System.err.println("HISTORICO VAZIO!");
         }
     }
 

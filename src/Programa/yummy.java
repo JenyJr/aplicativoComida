@@ -1,31 +1,37 @@
 package Programa;
-
-import Estruturas.avaliacao;
-import Estruturas.cadastroProduto;
-import Estruturas.cadastroUsuario;
+import Estruturas.*;
+import Nos.*;
 
 public class yummy {
     public cadastroUsuario cadastrarUsuario = new cadastroUsuario();
     public avaliacao avaliar = new avaliacao();
-    public cadastroProduto cadastrarProduto = new cadastroProduto();
+    public cadastroProduto produto = new cadastroProduto();
+
+    public pilhaAux pilhaAux = new pilhaAux();
     public cadastroUsuario cadastroUsuario;
 
-    void novoUsuario(String tipo, String nome, String email, String cpf, int ddd, int telefone){
-        cadastrarUsuario.cadastrar(tipo, nome, email, cpf, ddd, telefone);
+    public armazenarCompra historicoCompras = new armazenarCompra();
+
+    public void historicoCompra(String nome){
+        historicoCompras.inserir(nome);
     }
 
-    void novoProduto(int id, String nome){
-        cadastrarProduto.push(id, nome);
-    }
-    void retirarProduto(int id, String nome){
-        cadastrarProduto.pop();
+    void imprimirPilha(){
+       produto.imprimirPilha();
     }
 
-    void avaliarVendedor(int valor, int idVendedor){
-        avaliar.incluir(valor, idVendedor);
+    void novoUsuario(String tipo, String nome, String email, String cpf, String telefone, String senha){
+        cadastrarUsuario.cadastrar(tipo, nome, email, cpf, telefone, String.valueOf(senha));
     }
 
-
-
+    void novoProduto(String nome){
+        produto.push(nome);
+    }
+    void retirarProduto(String nome){
+        produto.popNome();
+    }
+    void avaliarVendedor(int valor){
+        avaliar.incluir(valor);
+    }
 
 }

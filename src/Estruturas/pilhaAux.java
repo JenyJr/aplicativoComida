@@ -1,13 +1,12 @@
 package Estruturas;
-import Nos.produto;
-//PILHA
 
-public class cadastroProduto {
+import Nos.produto;
+import Nos.produtoAux;
+
+public class pilhaAux {
     public produto base;
     public produto topo;
-
-    pilhaAux pilhaAux = new pilhaAux();
-    public cadastroProduto(){
+    public pilhaAux(){
         this.base = this.topo = null;
     }
 
@@ -16,10 +15,11 @@ public class cadastroProduto {
     }
 
     public void push(String nome){
+        produto inserir = new produto(nome);
         if(Vazia()){
-            this.base = this.topo = new produto(nome);
+            this.base = this.topo = inserir;
         }else{
-            topo.proximo = new produto(nome);
+            topo.proximo = inserir;
             topo = topo.proximo;
         }
     }
@@ -43,15 +43,5 @@ public class cadastroProduto {
     }
 
     //debug
-    public void imprimirPilha(){
-        while(!Vazia()){
-            String prod = popNome();
-            System.out.println("Produto: " + prod);
-            pilhaAux.push(prod);
-        }
-        while (!pilhaAux.Vazia()) {
-            push(pilhaAux.popNome());
-        }
-    }
 }
 

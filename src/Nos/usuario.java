@@ -2,21 +2,20 @@ package Nos;
 
 public class usuario {
 
-    public String tipo, nome, email, cpf;
-    public int ddd;
-    public int telefone;
+    public String tipo, nome, senha, email, cpf, telefone;
+
     public usuario proximo;
     public usuario anterior;
 
-    public usuario(String tipo, String nome, String email, String cpf, int ddd, int telefone){
-        this.proximo  = null;
-        this.anterior = null;
+    public usuario(String tipo, String nome, String senha, String email, String cpf, String telefone){
+        this.proximo  = this.anterior = null;
         this.tipo = tipo;
         this.nome = nome;
+        this.senha = senha;
         this.email = email;
         this.cpf = cpf;
-        this.ddd = ddd;
         this.telefone = telefone;
+
     }
 }
 
