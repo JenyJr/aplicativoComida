@@ -16,19 +16,20 @@ public class cadastroProduto {
     }
 
     public void push(String nome){
+        produto inserir = new produto(nome);
         if(Vazia()){
-            this.base = this.topo = new produto(nome);
+            this.base = this.topo = inserir;
         }else{
-            topo.proximo = new produto(nome);
+            topo.proximo = inserir;
             topo = topo.proximo;
         }
     }
 
     public String popNome(){
+        String itemNome = topo.nome;
         if(Vazia()){
             return null;
         }
-        String itemNome = topo.nome;
         if(this.base == this.topo) {
             this.base = this.topo = null;
         } else {
@@ -50,7 +51,7 @@ public class cadastroProduto {
             pilhaAux.push(prod);
         }
         while (!pilhaAux.Vazia()) {
-            push(pilhaAux.popNome());
+            push(pilhaAux.popAux());
         }
     }
 }
