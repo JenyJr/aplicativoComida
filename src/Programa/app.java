@@ -14,11 +14,11 @@ public class app {
         //MENU
         int n;
         do {
-            System.out.println("\n====== Yummy App  ======\n");
+            System.out.println("\n====== Yummy App ======\n");
             System.out.println("1 - Cadastrar Comprador");
             System.out.println("2 - Cadastrar Vendedor");
             System.out.println("3 - Sair");
-            System.out.println("============================\n");
+            System.out.println("=======================\n");
             n = scanner.nextInt();
 
             switch (n) {
@@ -67,18 +67,16 @@ public class app {
                                 System.out.print("Escolha o nome do produto a ser comprado: ");
                                 nomeEscolhido = scanner.next();
                                 aplicativoYummy.historicoCompra(nomeEscolhido);
-                                aplicativoYummy.retirarProduto(nomeEscolhido);
 
 
                                 String caracter = "=";
                                 System.out.print("Sua compra está em processo de entrega: \n");
-                                for (int i = 0; i < 15; i++) {
+                                for (int i = 0; i < 30; i++) {
                                     System.out.print(caracter);
-                                    Thread.sleep(500);
+                                    Thread.sleep(400);
                                 }
                                 
                                     int e;
-                                    do{
                                         System.out.println("\n");
                                         System.out.println("1 - Status da compra \n");
                                         System.out.println("2 - Sair\n");
@@ -86,7 +84,7 @@ public class app {
                                     switch (e){
                                         case 1:
                                             System.out.println("\n");
-                                            System.out.println("====== Seu Produto chegou ao destino final! ======");
+                                            System.out.println("*** Seu Produto chegou ao destino final! ***\n");
                                             int avaliacao;
 
                                             System.out.println("====== Avalie o vendedor com uma nota de 0 a 10 ======");
@@ -98,7 +96,7 @@ public class app {
                                             for(int i = 0; i < avaliacao; i++){
                                                 System.out.print(estrelas);
                                             }
-
+                                            System.out.println();
                                             break;
                                             
                                         case 2:
@@ -110,9 +108,10 @@ public class app {
                                                 System.out.print("\rSaindo " + caracteres.charAt(i % caracteres.length()));
                                                 Thread.sleep(delayMilissegundos);
                                             }
+                                            System.out.println("\n");
                                             break;
                                     }
-                                } while(e != 2);
+
                                 break;
                             case 3:
                                 System.out.println("====== HISTORICO DE COMPRAS ======");
@@ -160,9 +159,8 @@ public class app {
                     do {
                         System.out.println("====== MENU DE OPÇÕES(Vendedor) ======\n");
                         System.out.println("1 - Cadastrar Produto");
-                        System.out.println("2 - Retirar Produto");
-                        System.out.println("3 - Vizualizar Produtos");
-                        System.out.println("4 - Sair\n");
+                        System.out.println("2 - Vizualizar Produtos");
+                        System.out.println("3 - Sair\n");
                         n1 = scanner.nextInt();
 
                         switch (n1) {
@@ -177,29 +175,17 @@ public class app {
                                     aplicativoYummy.novoProduto(nomeProduto);
                                     System.out.println("------Produto Adicionado------\n-Nome do Produto: " + nomeProduto);
 
-                                    System.out.println("Deseja continuar adicionando produtos ou voltar?\nC - para Continuar\tV - para voltar \n->");
+                                    System.out.println("\nC - Cadastrar mais produtos \tV - para voltar \n:");
                                     finalizar = scanner.next();
                                 } while(Objects.equals(finalizar, "C") || Objects.equals(finalizar, "c"));
 
                                 break;
 
-        /*                    case 2:
-                                String nomeProdutoR;
-
-                                System.out.println("====== Retirar Produto do catálogo ======\n");
-                                System.out.println("Nome do produto: ");
-                                nomeProdutoR = scanner.next();
-
-                                aplicativoYummy.transferirPilhaLista(nomeProdutoR);
-                                System.out.println("--- Produto Removido ---\n-Nome:" + nomeProdutoR);
-
-                                break;
-*/
-                            case 3:
+                            case 2:
                                 System.out.println("====== Lista de Produtos Cadastrados ======\n");
                                 aplicativoYummy.imprimirPilha();
                                 break;
-                            case 4:
+                            case 3:
                                 String caracteres = "|/-\\";
                                 int totalPassos = 15;
                                 int delayMilissegundos = 400;
@@ -211,7 +197,7 @@ public class app {
                                 break;
                         }
 
-                    } while (n1!=4);
+                    } while (n1!=3);
 
                     break;
 

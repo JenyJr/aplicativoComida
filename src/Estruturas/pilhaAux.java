@@ -4,44 +4,44 @@ import Nos.produto;
 import Nos.produtoAux;
 
 public class pilhaAux {
-    public produto base;
-    public produto topo;
+    public produto baseAux;
+    public produto topoAux;
     public pilhaAux(){
-        this.base = this.topo = null;
+        this.baseAux = this.topoAux = null;
     }
 
     public boolean Vazia(){
-        return base == null;
+        return baseAux == null;
     }
 
     public void push(String nome){
         produto inserir = new produto(nome);
         if(Vazia()){
-            this.base = this.topo = inserir;
+            this.baseAux = this.topoAux = inserir;
         }else{
-            topo.proximo = inserir;
-            topo = topo.proximo;
+            topoAux.proximo = inserir;
+            topoAux = topoAux.proximo;
         }
     }
 
-    public String popNome(){
+    public String popAux(){
         if(Vazia()){
             return null;
         }
-        String itemNome = topo.nome;
-        if(this.base == this.topo) {
-            this.base = this.topo = null;
+        String itemAux = topoAux.nome;
+        if(this.baseAux == this.topoAux) {
+            this.baseAux = this.topoAux = null;
         } else {
-            produto atual = base;
-            while (atual.proximo != topo){
+            produto atual = baseAux;
+            while (atual.proximo != topoAux){
                 atual = atual.proximo;
             }
-            topo = atual;
+            topoAux = atual;
             atual.proximo = null;
         }
-        return itemNome;
+        return itemAux;
     }
 
-    //debug
+
 }
 

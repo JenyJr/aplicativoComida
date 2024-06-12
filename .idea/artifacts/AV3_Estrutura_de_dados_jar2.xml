@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="AV3 Estrutura de dados:jar2">
+    <output-path>$PROJECT_DIR$/out/artifacts/AV3_Estrutura_de_dados_jar2</output-path>
+    <root id="archive" name="AV3 Estrutura de dados.jar">
+      <element id="module-output" name="AV3 Estrutura de dados" />
+    </root>
+  </artifact>
+</component>
