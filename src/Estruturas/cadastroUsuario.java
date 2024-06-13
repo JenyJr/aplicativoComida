@@ -13,7 +13,7 @@ public class cadastroUsuario {
 
     public void cadastrar(String tipo, String nome, String email, String cpf, String telefone, String senha){
         usuario novoCliente = new usuario(tipo, nome, email, cpf, telefone, senha);
-        if (this.inicio == null){
+        if (this.inicio == null){//estava errado com erro de lógica (this.inicio != null)
             this.inicio = novoCliente;
         } else if(this.inicio.cpf.equals(cpf)){
            this.inicio = this.inicio.proximo;
@@ -36,7 +36,7 @@ public class cadastroUsuario {
         usuario atual = this.inicio;
         usuario anterior = this.inicio;
 
-        while(!atual.cpf.equals(cpf)){
+        while(!atual.nome.equals(cpf)){ //estava assim: while(!atual.nome.equals(nome))
             anterior = atual;
             atual = atual.proximo;
         }
@@ -55,7 +55,7 @@ public class cadastroUsuario {
             System.out.println("Tipo: " + atual.tipo);
             System.out.println("Nome: " + atual.nome);
             System.out.println("Email: "  + atual.email);
-            System.out.println("Cpf :" + CPF);
+            System.out.println("Cpf :" + CPF); // erro faltando + para concatenação
             System.out.println("Telefone :" + TEL);
 
             anterior = atual;

@@ -46,28 +46,4 @@ public class armazenarCompra{
         }
     }
 
-    public void emOrdem(){
-        imprimirArvoreRecEmOrdem(raiz);
-    }
-
-    public void imprimirArvoreRecEmOrdem(compra raiz){
-        if(raiz != null){
-            imprimirArvoreRecEmOrdem(raiz.esquerda);
-            System.out.println(raiz.nomeProduto);
-            imprimirArvoreRecEmOrdem(raiz.direita);
-        }
-    }
-
-    public void preOrdem(){
-        imprimirArvoreRecPreOrdem(raiz);
-    }
-
-    public void imprimirArvoreRecPreOrdem(compra raiz){
-        if(raiz != null){
-            System.out.println(raiz.nomeProduto);
-            imprimirArvoreRecPreOrdem(raiz.esquerda);
-            imprimirArvoreRecPreOrdem(raiz.direita);
-        }
-    }
-
 }

@@ -14,7 +14,7 @@ public class avaliacao{
         this.ultimo = null;
     }
 
-    public void incluir (int valor){
+    public void incluir (int valor){//erro de lógica, estava private void incluir
         nota inserir = new nota(valor);
         if(this.primeiro == null){
             this.primeiro = inserir;
@@ -26,11 +26,11 @@ public class avaliacao{
     }
 
     //debug
-    public void imprimir(){
+    public void imprimir(){//erro de lógica, estava private void imprimir
         if(this.primeiro!=null){
             nota atual = this.primeiro;
             while(atual!= null){
-                System.out.println("Avaliação: " + atual.valor );
+                System.out.println("Avaliação: " +  atual.valor );//erro de concatenação, estava sem +
                 atual = atual.proximo;
             }
 
