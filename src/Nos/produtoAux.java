@@ -1,6 +1,7 @@
 package Nos;
 
 public class produtoAux {
+
     public produtoAux proximo;
 
     public String nome;

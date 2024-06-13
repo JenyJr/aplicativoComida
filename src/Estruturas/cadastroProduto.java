@@ -15,7 +15,7 @@ public class cadastroProduto {
         return base == null;
     }
 
-    public void push(String nome){
+    public void push(String nome){ //erro de acesso/lógica, estava private void push
         produto inserir = new produto(nome);
         if(Vazia()){
             this.base = this.topo = inserir;
@@ -25,7 +25,7 @@ public class cadastroProduto {
         }
     }
 
-    public String popNome(){
+    public String popNome(){ //erro de acesso/lógica, estava private String popNome
         String itemNome = topo.nome;
         if(Vazia()){
             return null;
@@ -44,7 +44,7 @@ public class cadastroProduto {
     }
 
     //debug
-    public void imprimirPilha(){
+    public void imprimirPilha(){//erro de acesso/lógica, estava private void imprimirPilha
         while(!Vazia()){
             String prod = popNome();
             System.out.println("Produto: " + prod);

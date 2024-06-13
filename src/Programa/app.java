@@ -71,7 +71,7 @@ public class app {
 
                                 String caracter = "=";
                                 System.out.print("Sua compra está em processo de entrega: \n");
-                                for (int i = 0; i < 30; i++) {
+                                for (int i = 0; i < 30; i++) { //estava i=i+0
                                     System.out.print(caracter);
                                     Thread.sleep(400);
                                 }
@@ -132,8 +132,9 @@ public class app {
                                 break;
                         }
 
-                    } while(s != 4);
+                    } while(s != 4);// estava s!=40
                     break;
+
                 case 2:
                     String tipo2 = "Vendedor", nomeVendedor = "", senhaVendedor = "", emailVendedor = "", cpfVendedor = "", telefoneVendedor = "";
 
@@ -181,7 +182,7 @@ public class app {
 
                                 break;
 
-                            case 2:
+                            case 2: //estava case 5
                                 System.out.println("====== Lista de Produtos Cadastrados ======\n");
                                 aplicativoYummy.imprimirPilha();
                                 break;
